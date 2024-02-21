@@ -122,8 +122,9 @@ class MultiHeadSelfAttention(nn.Module):
 3. 对x’,y’取整得到（xx，yy）并得到(xx，yy)、(xx+1，yy)、（xx，yy+1）和（xx+1，yy+1）的值。
 4. 利用双线性插值得到像素点(x，y)的值并写回新图像。
 
-双线性插值实现：将每个像素点坐标(x,y)分解为(i+u,j+v), i,j是整数部分，u,v是小数部分，则f(i+u,j+v) = (1-u)(1-v) * f(i,j)+uv * f(i+1,j+1)+u(1-v)f(i+1,j)+(1-u)v * f(i,j+1)。
-opencv实现细节：将新图像像素点映射回原图像时，SrcX=(dstX+0.5)\* (srcWidth/dstWidth) -0.5，SrcY=(dstY+0.5) \* (srcHeight/dstHeight)-0.5，使得原图像和新图像几何中心对齐。因为按原始映射方式，5*5图像缩放成3*3图像，图像中心点(1,1)映射回原图会变成(1.67，1.67)而不是(2,2)。
+双线性插值实现：将每个像素点坐标(x,y)分解为(i+u,j+v), i,j是整数部分，u,v是小数部分，则f(i+u,j+v)=(1−u)(1−v)∗f(i,j)+uv∗f(i+1,j+1)+u(1−v)f(i+1,j)+(1−u)v∗f(i,j+1) f(i+u,j+v) = (1-u)(1-v) \ast f(i,j)+uv \ast f(i+1,j+1)+u(1-v)f(i+1,j)+(1-u)v \ast f(i,j+1) 。
+
+opencv实现细节：将新图像像素点映射回原图像时，SrcX=(dstX+0.5)∗(srcWidth/dstWidth)−0.5，SrcY=(dstY+0.5)∗(srcHeight/dstHeight)−0.5SrcX=(dstX+0.5) \ast (srcWidth/dstWidth) -0.5，SrcY=(dstY+0.5) \ast (srcHeight/dstHeight)-0.5，使得原图像和新图像几何中心对齐。因为按原始映射方式，5∗55 \ast 5图像缩放成3∗33 \ast 3图像，图像中心点(1,1)映射回原图会变成(1.67，1.67)而不是(2,2)。
 ### 4、图像旋转实现
 #### 旋转矩阵：
 

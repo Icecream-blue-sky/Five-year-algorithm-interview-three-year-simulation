@@ -15,3 +15,8 @@
 <center>
 <img src=".\万字秋招算法岗深度学习八股文大全\公众号.png" width=50% height=50%/>
 </center>
+
+#### 微信交流群
+<center>
+<img src=".\img\交流群.jpg" width=40% height=40%/>
+</center>

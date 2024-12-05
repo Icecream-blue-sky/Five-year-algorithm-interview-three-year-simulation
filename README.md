@@ -18,5 +18,5 @@
 
 #### 微信交流群
 <center>
-<img src=".\img\交流群.jpg" width=40% height=40%/>
+<img src=".\img\交流群.jpg"  width=40% height=40%/>
 </center>
